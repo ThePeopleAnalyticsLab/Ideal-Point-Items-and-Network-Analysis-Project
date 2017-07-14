@@ -1,0 +1,83 @@
+---
+title             : "Applying Network Analysis to Ideal Point Personality Item Responses"
+shorttitle        : "An Exploratory Analysis"
+
+author: 
+  - name          : "Dan Simonet"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+  - name          : "Christopher M. Castille"
+    affiliation   : "2"
+
+affiliation:
+  - id            : "1"
+    institution   : "Montclair State University"
+  - id            : "2"
+    institution   : "Nicholls State University"
+
+author_note: >
+  Dan Simonet is an Assistant Professor of Psychology at Montclair State University. Christopher M. Castille is an Assistant Professor of Management and Marketing at Nicholls State University. 
+
+abstract: >
+  Personality researchers have recently taken interest in two methodological innovations network and analysis and ideal point item writing strategies. The former suggests that personality is best understood as a network while the latter allows personality traits to be measured more precisely. Here, we explore the value of integrating these two innovations.
+  
+keywords          : "ideal point, personality, network analysis"
+wordcount         : "XXXX"
+
+bibliography      : ["r-references.bib"]
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : yes
+
+lang              : "english"
+class             : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r include = FALSE}
+library("papaja")
+#Note: to access the Google Doc version of this manuscript, see this link: https://docs.google.com/document/d/1it0NpMMMU7aKXdSFGkjxs28XQ5ioiHhGNZY2kC9lTEg/edit
+```
+
+#Introduction 
+Ideal point models, like many latent factor models, assumes unidimensionality. Unfortunately, many items are inherently multidimensional (e.g., midrange and extreme items). These items are often associated with high standard errors, if they survive analysis. 
+Network models are less restrictive. They can show how multidimensional items reside in a network.
+Theoretical approaches by Woods and colleagues suggests that personality descriptions can reflect functional in addition to structural constructs. 
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+```{r}
+#data
+
+
+```
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}

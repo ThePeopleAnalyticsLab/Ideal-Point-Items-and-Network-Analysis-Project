@@ -55,8 +55,8 @@ We report how we determined our sample size, all data exclusions (if any), all m
 ## Participants
 ```{r}
 #data
-
-
+require(RCurl)
+data <- read.csv(text=getURL("https://raw.githubusercontent.com/ThePeopleAnalyticsLab/Ideal-Point-Items-and-Network-Analysis-Project/master/data.csv"), header=T)
 ```
 
 ## Material

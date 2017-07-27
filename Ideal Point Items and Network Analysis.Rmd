@@ -57,6 +57,14 @@ We report how we determined our sample size, all data exclusions (if any), all m
 #data
 require(RCurl)
 data <- read.csv(text=getURL("https://raw.githubusercontent.com/ThePeopleAnalyticsLab/Ideal-Point-Items-and-Network-Analysis-Project/master/data.csv"), header=T)
+
+#####   Organize Dataset    ##### 
+colnames(data)
+personality <- data[c(69:236)]
+names(personality) <- gsub("Here.are.a.number.of.characteristics.that.may.or.may.not.apply.to.you..Please.indicate.the.extent....", "", names(personality), fixed = TRUE)
+
+#Note: The dataset "personality" contains all the item responses.  
+
 ```
 
 ## Material

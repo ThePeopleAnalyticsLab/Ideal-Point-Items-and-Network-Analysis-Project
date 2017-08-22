@@ -16,7 +16,7 @@
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-4-1.pdf}
 \caption{\label{fig:unnamed-chunk-4}Network representation of 168
-ideal-point inveneotry modeled after the NEO-PI facet structure. Each
+ideal-point inventory modeled after the NEO-PI facet structure. Each
 item is represented by a node, and the node number corresponds to the
 item statements in Table 1. Nodes are connected by green (red) lines if
 they are positively (negatively) correlated. Line thickness corresponds
@@ -30,19 +30,11 @@ nodes closely together and towards the middle of the graph.}
 \ifnextchar[{\eatarg}{}
 [htbp]
 \centering
-\includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-5-1.pdf}
-\caption{\label{fig:unnamed-chunk-5}Same network results from Figure 1
-rearranged by Big Five groupings and restricted to display only partial
-correlations .10 or greater.}
-\end{figure*}
-\efloatseparator
- 
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-[htbp]
-\centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-6-1.pdf}
-\caption{}
+\caption{\label{fig:unnamed-chunk-6}Same network results from Figure 1
+rearranged by Big Five groupings and restricted to display partial
+correlations .10 or greater. Visualized edges depict strong residual
+item associations within and between trait factors.}
 \end{figure*}
 \efloatseparator
  
@@ -51,7 +43,17 @@ correlations .10 or greater.}
 [htbp]
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-7-1.pdf}
-\caption{\label{fig:unnamed-chunk-7}Network depicting the shortest paths
+\caption{\label{fig:unnamed-chunk-7}Centrality plot depicting the
+betweenness, closeness, and strength of each node.}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[htbp]
+\centering
+\includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-8-1.pdf}
+\caption{\label{fig:unnamed-chunk-8}Network depicting the shortest paths
 between Conscientiousness and Emotional Stability items. Edges belonging
 to the shortest-paths are full, while the other edges are dashed.}
 \end{figure*}

@@ -1,0 +1,9 @@
+set title "Test Characteristic Curve\nExpected Test Score"
+set xlabel "Theta"
+set ylabel "True\nScore"
+set xrange [-4:4]
+set yrange [0:          90]
+set term postscript
+set output "PLOT4.ps"
+set data style lp
+plot "PLOT4.dat" using 1:2 notitle with lines

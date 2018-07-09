@@ -1,0 +1,9 @@
+set title "Average Observed Versus Expected Value"
+set xlabel "Theta - Delta"
+set ylabel "Average"
+set xrange [          -5:           7]
+set yrange [0:5]
+set term postscript
+set output "plot7.ps"
+set data style lp
+plot "plot7.dat" using 1:2 t "Expected" with points, "plot7.dat" using 1:3 t "Observed" with lines

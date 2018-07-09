@@ -1,0 +1,9 @@
+set title "Item Location (Delta) Estimates"
+set xlabel "Delta"
+set ylabel " "
+set xrange [-4:4]
+set yrange [1:1]
+set term postscript
+set output "PLOTLOC.ps"
+set data style lp
+plot "PLOTL0C.dat" using 1:2 notitle with dots

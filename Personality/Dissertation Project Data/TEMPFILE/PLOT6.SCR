@@ -1,0 +1,9 @@
+set title "Test Information Function"
+set xlabel "Theta"
+set ylabel "Info"
+set xrange [-4:4]
+set yrange [          -5:          20]
+set term postscript
+set output "PLOT6.ps"
+set data style lp
+plot "PLOT6.dat" using 1:2 notitle with lines

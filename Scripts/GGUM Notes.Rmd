@@ -1,0 +1,70 @@
+---
+title: "GGUM Notes"
+output: html_document
+---
+Hey guys, I grabbed beers w/ Phil Chalmers yesterday (who now works in Ed Psych here at UGA) and it turns out that the day before one of Jim Roberts' students (David King) from GT finally uploaded the 'ggum' itemtype to github (the place where new versions of packages get posted before you can actually directly install them) .. 
+
+You CANNOT use the ggum item type from the typical install of 'mirt' .. you have to download it "off the master branch" .. if you run the code below you will install the version of mirt that has the ggum itemtype in it!
+```{r}
+install.packages('devtools')
+require(devtools)
+install_github('philchalmers/mirt',ref='feature/add-ggum')
+library(mirt)
+```
+To run the GGUM is as simple as the other types:
+
+```{r}
+ggumtry<-mirt(data,1,'ggum')
+```
+This should also mean that we can do multidimensional GGUM, as well as get M2 statistics for it (though word of warning, i have only played around w/ it a little bit so far and have not pulled these yet) .. this will make many of our lives a whole lot easier .. 
+
+Those of you who have run GGUM2004 will not be surprised that the algorithm still takes a long time and a lot of iterations, so I recommend:
+
+```{r}
+ggumtry<-mirt(data,1,'ggum',technical=list(c(NCYCLES=100000))) # calculating M2 also takes a long time .. 
+```
+I'm attaching two datasets of our unfolding measures of conscientiousness aspects (industriousness and order, 18 items each in order) .. one example does a unidimensional model using the typical MML estimation. The other does a multidimensional confirmatory model for the two factors:
+
+```{r}
+indord<-read.csv("INDORD.csv")
+indord[indord==-9]<-NA
+ind<-indord[c(1:18)]
+ind_ggum<-mirt(ind,1,"ggum",technical=list(c(NCYCLES=100000)))
+coef(ind_ggum,simplify=T)
+M2(ind_ggum,impute=2)
+plot(ind_ggum,theta_lim=c(-4,4))
+
+#multidimensional two factors
+#NOTE: As of sending this I am still running it; it will likely take a long time; it #may be that rather than method="QMCEM" we will need method="MHRM" #instead; this is a MCMC-based estimation, which has been shown to 
+#perform better in some ways than QMCEM .. 
+
+indord_mod<-'IND=1-18
+ORD=19-36
+COV=IND*ORD'
+
+indord_ggum<-mirt(indord,indord_mod,"ggum",method="QMCEM",technical=list(c(NCYCLES=100000)))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

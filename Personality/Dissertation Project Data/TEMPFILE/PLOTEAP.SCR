@@ -1,9 +1,0 @@
-set title "Distribution of EAP Estimates"
-set xlabel "Theta"
-set ylabel "Proportion"
-set xrange [-4:4]
-set yrange [0:0.25]
-set term postscript
-set output "PLOTEAP.ps"
-set data style lp
-plot "PLOTEAP.dat" using 1:2 notitle with boxes

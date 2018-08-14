@@ -1,9 +1,0 @@
-set title "Item Information Function\nItem#: 17, delta= 1.202, alpha= 1.217, tau= 0.000, -3.748, -3.042, -2.529, -1.623,  0.249."
-set xlabel "Theta"
-set ylabel "Info"
-set xrange [-4:4]
-set yrange [           0:           2]
-set term postscript
-set output "PLOT517.ps"
-set data style lp
-plot "PLOT517.dat" using 1:2 t "Item #17" with lines

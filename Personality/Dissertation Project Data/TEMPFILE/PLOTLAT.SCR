@@ -1,9 +1,0 @@
-set title "Latent Trait Distribution"
-set xlabel "Theta"
-set ylabel "Density"
-set xrange [-4:4]
-set yrange [0:0.15]
-set term postscript
-set output "PLOTLAT.ps"
-set data style lp
-plot "PLOTLAT.dat" using 1:2 notitle with lines

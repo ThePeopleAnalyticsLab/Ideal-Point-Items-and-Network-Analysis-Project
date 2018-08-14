@@ -1,9 +1,0 @@
-set title "Item Characteristic Curve\nItem#: 26, delta= 1.644, alpha= 0.410, tau= 0.000, -4.247, -4.612, -5.369, -3.805,  1.149."
-set xlabel "Theta"
-set ylabel "E(Zi)"
-set xrange [-4:4]
-set yrange [0:5]
-set term postscript
-set output "PLOT326.ps"
-set data style lp
-plot "PLOT326.dat" using 1:2 t "Item #26" with lines

@@ -1,5 +1,5 @@
-\documentclass[english,man]{apa6}
-
+\documentclass[man]{apa6}
+\usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -9,177 +9,139 @@
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
   \else
     \usepackage{fontspec}
   \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Using Ideal Point Assessments to Develop Ideal Employees: An Inductive Approach},
+            pdfauthor={Dan Simonet, Christopher M. Castille, \& Alexandra Harris},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
-% Table formatting
-\usepackage{longtable, booktabs}
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+
+  \title{Using Ideal Point Assessments to Develop Ideal Employees: An Inductive
+Approach}
+    \author{Dan Simonet\textsuperscript{1}, Christopher M.
+Castille\textsuperscript{2}, \& Alexandra Harris\textsuperscript{3}}
+    \date{}
+  
+\shorttitle{Developing Ideal Employees}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} Montclair State University\\\textsuperscript{2} Nicholls State University\\\textsuperscript{3} University of Georgia}
+\usepackage{csquotes}
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+\usepackage{longtable}
 \usepackage{lscape}
-% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
-\usepackage{multirow}		% Table styling
-\usepackage{tabularx}		% Control Column width
-\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
-\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
 
-% Create new environments so endfloat can handle them
-% \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
-\newenvironment{lltable}
-  {\begin{landscape}\begin{center}\begin{ThreePartTable}}
-  {\end{ThreePartTable}\end{center}\end{landscape}}
-
-  \usepackage{ifthen} % Only add declarations when endfloat package is loaded
-  \ifthenelse{\equal{\string man}{\string man}}{%
-   \DeclareDelayedFloatFlavor{ThreePartTable}{table} % Make endfloat play with longtable
-   % \DeclareDelayedFloatFlavor{ltable}{table} % Make endfloat play with lscape
-   \DeclareDelayedFloatFlavor{lltable}{table} % Make endfloat play with lscape & longtable
-  }{}%
-
-
-
-% The following enables adjusting longtable caption width to table width
-% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
 \makeatletter
 \newcommand\LastLTentrywidth{1em}
 \newlength\longtablewidth
 \setlength{\longtablewidth}{1in}
-\newcommand\getlongtablewidth{%
- \begingroup
-  \ifcsname LT@\roman{LT@tables}\endcsname
-  \global\longtablewidth=0pt
-  \renewcommand\LT@entry[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}%
-  \@nameuse{LT@\roman{LT@tables}}%
-  \fi
-\endgroup}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
 
 
-  \usepackage{graphicx}
-  \makeatletter
-  \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-  \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-  \makeatother
-  % Scale images if necessary, so that they will not overflow the page
-  % margins by default, and it is still possible to overwrite the defaults
-  % using explicit options in \includegraphics[width, height, ...]{}
-  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            pdfauthor={},
-            pdftitle={Applying Network Analysis to Ideal Point Personality Item Responses},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=black,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-
-\setlength{\parindent}{0pt}
-%\setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-
-\ifxetex
-  \usepackage{polyglossia}
-  \setmainlanguage{}
-\else
-  \usepackage[english]{babel}
-\fi
-
-% Manuscript styling
-\captionsetup{font=singlespacing,justification=justified}
-\usepackage{csquotes}
-\usepackage{upgreek}
-
- % Line numbering
-  \usepackage{lineno}
-  \linenumbers
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{setspace} \makeatletter
+\renewcommand{\maketitle}{%
+  \singlespacing{%
+    \@ifundefined{@title}{}{%
+      Poster\newline
+      TITLE\newline
+      \@title\par\par
+    }
+    
+    \@ifundefined{@shorttitle}{}{%
+      SHORTENED TITLE\newline
+      \@shorttitle\par\par
+    }
+  
+    \@ifundefined{@abstract}{}{%
+      ABSTRACT\newline
+      \@abstract\par\par
+    }
+    
+    PRESS PARAGRAPH\newline
+    In recent years interest in ideal point measures has increased in the field of personality assessment among both researchers and practitioners. This submission focuses on the utility of the application of ideal point analysis to gain a more accurate profile of both potential and current employees. More specifically, we focus on how network analysis, if applied to ideal point personality assessment data, might be used to coach employees into ideal organizational citizens. 
 
 
-\usepackage{tikz} % Variable definition to generate author note
-
-% fix for \tightlist problem in pandoc 1.14
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Essential manuscript parts
-  \title{Applying Network Analysis to Ideal Point Personality Item Responses}
-
-  \shorttitle{An Exploratory Analysis}
-
-
-  \author{Dan Simonet\textsuperscript{1}~\& Christopher M. Castille\textsuperscript{2}}
-
-  \def\affdep{{"", ""}}%
-  \def\affcity{{"", ""}}%
-
-  \affiliation{
-    \vspace{0.5cm}
-          \textsuperscript{1} Montclair State University\\
-          \textsuperscript{2} Nicholls State University  }
-
-  \authornote{
-    \newcounter{author}
-    Dan Simonet is an Assistant Professor of Psychology at Montclair State
-    University. Christopher M. Castille is an Assistant Professor of
-    Management and Marketing at Nicholls State University.
-
-                      Correspondence concerning this article should be addressed to Dan Simonet, Postal address. E-mail: \href{mailto:my@email.com}{\nolinkurl{my@email.com}}
-                          }
-
-
-  \abstract{Personality researchers have recently taken interest in two
-methodological innovations network analysis and ideal point item writing
-strategies. The former suggests that personality is best understood as a
-system of mutually reinforcing actions while the latter allows more
-precise measurement of personality components. Here, we explore the
-value of integrating these two innovations by exploring the network
-properties of a Big Five inventory constructed with ideal-point items.}
-  \keywords{ideal point, personality, network analysis \\
-
-    \indent Word count: XXXX
+    \par\par
+    
+    WORD COUNT\newline
+    2588
+    \clearpage
   }
+} \makeatother
 
+\
 
+\abstract{
+We explore the possibility of applying network analysis to ideal point
+personality assessment data. We illustrate how employee personality data
+might be used as part of coaching interventions in order to develop
+employee into ideal organizational citizens.
+}
 
-
-
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-\newtheorem{proposition}{Proposition}
-\theoremstyle{definition}
-\newtheorem{example}{Example}
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
 \begin{document}
-
 \maketitle
 
-\setcounter{secnumdepth}{0}
-
-
-
-\section{\texorpdfstring{\textbf{Introduction}}{Introduction}}\label{introduction}
+\section{Introduction}\label{introduction}
 
 Recent findings suggests self-report inventories conform to an ideal
 point process in which persons endorse items only to the extent the item
@@ -209,9 +171,9 @@ processes (deliberation, emotional regulation) accrue to form traits
 (individual differences).
 
 Drawing upon a psychometric network approach to individual differences
-(Cramer et al., 2012), we recast the Big Five as a dynamic system of
-directly interacting feelings, thoughts, and behaviors. Rather than
-treat \enquote{hidden traits} as causal forces lying behind stable
+(A. O. J. Cramer et al., 2012), we recast the Big Five as a dynamic
+system of directly interacting feelings, thoughts, and behaviors. Rather
+than treat \enquote{hidden traits} as causal forces lying behind stable
 behavioral patterns, the network approach models traits as consequences
 of mutually reinforcing interactions between specific thoughts,
 feelings, and behaviors (see Figure 1 for illustration). From this
@@ -223,13 +185,13 @@ leads one to be more disciplined in allocation of personal resources.
 Forces bonding autonomous acts into trait clusters might be shared
 biological origins, learning principles, socially enforced norms, or
 functional aims that produce accretion of multiple explanatory
-mechanisms which unite for causal, homeostatic, or logical reasons
-(Cramer et al., 2012; Fleeson \& Jayawickreme, 2015; Wood, Gardner, \&
-Harms, 2015).
+mechanisms which unite for causal, homeostatic, or logical reasons (A.
+O. J. Cramer et al., 2012; Fleeson \& Jayawickreme, 2015; Wood, Gardner,
+\& Harms, 2015).
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.32in]{C:/Users/Simmy566/Documents/Ideal-Point-Items-and-Network-Analysis-Project/Latnet_fig1} 
+{\centering \includegraphics[width=4.32in]{Latnet_fig1} 
 
 }
 
@@ -263,124 +225,101 @@ The current study unifies these methodological innovations by applying
 network analyses to a Big Five instrument developed with ideal-point
 item writing strategies. We contrast four major network properties with
 research exploring similar properties of common Big Five inventories
-(Cramer et al., 2012; Constantini et al., 2015; Constantini \& Perugini,
-2016). The first is the topology, or \emph{large-scale structure}, of
-the Big Five including global node arrangement and degree to which nodes
-cluster together while distances between any two nodes remain small
-(\emph{small-worldness}; Constantini et al., 2015). Two, we identify the
-nature and content of cross-trait item pairings to identify possible
-\emph{bridging} components explaining observed covariance between trait
-factors (e.g., why do agreeable people tend to be conscientious). Three,
-we compare the most \enquote{central} and \enquote{peripheral} nodes
-with the nature of the central facets identified in past publications.
-Nodes which are central play a more prominent role in connecting
-elements of the personality system and, consequentially, may be idea
-targets for intervention if desiring to shift one's personality.
-Finally, given the general importance of emotional stability and
-conscientiousness for job performance across occupations, we examine the
-\emph{shortest} pathways that may explain the route through which
-changes in emotional stability (conscientiousness) may facilitate
-changes in conscientiousness (emotional stability). In all cases, we
-highlight areas where ideal-point items play a role in facilitating
-information flow in the Big Five network.
+(Costantini \& Perugini, 2018; Costantini et al., 2015; A. O. J. Cramer
+et al., 2012). The first is the topology, or \emph{large-scale
+structure}, of the Big Five including global node arrangement and degree
+to which nodes cluster together while distances between any two nodes
+remain small (\emph{small-worldness}; Costantini et al., 2015). Two, we
+identify the nature and content of cross-trait item pairings to identify
+possible \emph{bridging} components explaining observed covariance
+between trait factors (e.g., why do agreeable people tend to be
+conscientious). Three, we compare the most \enquote{central} and
+\enquote{peripheral} nodes with the nature of the central facets
+identified in past publications. Nodes which are central play a more
+prominent role in connecting elements of the personality system and,
+consequentially, may be idea targets for intervention if desiring to
+shift one's personality. Finally, given the general importance of
+emotional stability and conscientiousness for job performance across
+occupations, we examine the \emph{shortest} pathways that may explain
+the route through which changes in emotional stability
+(conscientiousness) may facilitate changes in conscientiousness
+(emotional stability). In all cases, we highlight areas where
+ideal-point items play a role in facilitating information flow in the
+Big Five network.
 
-\section{\texorpdfstring{\textbf{Methods and
-Results}}{Methods and Results}}\label{methods-and-results}
+\section{Methods and Results}\label{methods-and-results}
 
 Given space limits yet novelty of network terminology, the methods and
-results are presented concurrently.
+results are presented concurrently. The data for this study come from a
+sample (n = 677) of working employees from Amazon's Mechanical Turk
+(MTurk) who completed a suite of ideal point personality assessments
+capturing the Big Five Aspects (see Castille, 2015; DeYoung, 2015). The
+marginal reliabilities of these assessments were all acceptable (ρ
+\textgreater{} .82). Psychometric network analyses (Costantini et al.,
+2015) involved casting items as nodes connected by lines, the strength
+of which corresponds to the strength of the GLASSO regularized partial
+correlations linking said nodes. The initial network is presented in
+Figure 1 (item labels provided in Table 1).
 
-We report how we determined our sample size, all data exclusions (if
-any), all manipulations, and all measures in the study.
-
-\subsection{Participants}\label{participants}
-
-\subsection{Measure}\label{measure}
-
-\subsection{Material}\label{material}
-
-\subsection{Procedure}\label{procedure}
-
-\subsection{Data analysis}\label{data-analysis}
-
-We used R (3.3.1, R Core Team, 2016) and the R-packages \emph{bitops}
-(1.0.6, Steve Dutky initial R port, Martin Maechler; revised, \& Steve
-Dutky, 2013), \emph{bootnet} (1.0.0, Epskamp, Borsboom, \& Fried, 2017),
-\emph{careless} (1.0, Yentes, 2016), \emph{corrr} (0.2.1, Jackson,
-2016), \emph{dplyr} (0.5.0, Wickham \& Francois, 2016), \emph{Formula}
-(1.2.1, Zeileis \& Croissant, 2010), \emph{ggplot2} (2.2.1, Wickham,
-2009), \emph{Hmisc} (4.0.3, Harrell Jr, Charles Dupont, \& others.,
-2017), \emph{kableExtra} (0.4.0, Zhu, 2017), \emph{knitr} (1.17, Xie,
-2015), \emph{lattice} (0.20.33, Sarkar, 2008), \emph{lavaan}
-(0.5.23.1097, Rosseel, 2012), \emph{mgm} (1.2.1, Haslbeck \& Waldorp,
-2016), \emph{pander} (0.6.0, Darczi \& Tsegelskyi, 2015), \emph{papaja}
-(0.1.0.9492, Aust \& Barth, 2017), \emph{psych} (1.6.12, Revelle, 2016),
-\emph{purrr} (0.2.2, Wickham, 2016), \emph{qgraph} (1.4.2, Epskamp,
-Cramer, Waldorp, Schmittmann, \& Borsboom, 2012), \emph{RCurl}
-(1.95.4.8, Lang \& CRAN team, 2016), \emph{readr} (1.0.0, Wickham,
-Hester, \& Francois, 2016), \emph{stringr} (1.2.0, Wickham, 2017a),
-\emph{survival} (2.40.1, Terry M. Therneau \& Patricia M. Grambsch,
-2000), \emph{tibble} (1.2, Wickham, Francois, \& Mller, 2016),
-\emph{tidyr} (0.6.1, Wickham, 2017b), and \emph{tidyverse} (1.1.1,
-Wickham, 2017c) for all our analyses.
-
-\subsubsection{Estimating and Visualizing the
-Network}\label{estimating-and-visualizing-the-network}
+\begin{verbatim}
+## Warning: Missing column names filled in: 'X1' [1]
+\end{verbatim}
 
 Personality networks present items as nodes connected by edges
 representing statistical relationships. We implemented a Gaussian
 Graphical Model (GGM) on a polychoric correlation matrix using a
 graphical least absolute shrinkage and selection (glasso) with the
 extended EBIC criterium in \emph{qgraph} 1.4.3 (Epskamp, Borsboom, \&
-Fried, 2017; Friedman et al., 2008). There are two things to note.
-First, the glasso avoids spurious associations by using
-\emph{regularization} to assign penalties so all edges are shrunk with
-small edges being set to zero. This results in a \emph{sparse} (i.e.,
-conservative) network that safeguards against overfitting by modeling
-covariance among components with as few connections as possible. Second,
-because the network uses partial correlations, all edges imply a
-relationship exists after controlling for all other nodes. Because the
-model is uniquely specified, it facilitates clear and unambiguous
-interpretation of edge-weight parameters as the strength of
-\emph{unique} associations providing a putative causal skeleton. Given
-the larger number of items, the EBIC hyperparameter was set to a
-conservative .8 to err on the side of caution and we hide all partial
-correlations less than .05 for visual clarity.
+Fried, 2018). There are two things to note. First, the glasso avoids
+spurious associations by using \emph{regularization} to assign penalties
+so all edges are shrunk with small edges being set to zero. This results
+in a \emph{sparse} (i.e., conservative) network that safeguards against
+overfitting by modeling covariance among components with as few
+connections as possible. Second, because the network uses partial
+correlations, all edges imply a relationship exists after controlling
+for all other nodes. Because the model is uniquely specified, it
+facilitates clear and unambiguous interpretation of edge-weight
+parameters as the strength of \emph{unique} associations providing a
+putative causal skeleton. Given the larger number of items, the EBIC
+hyperparameter was set to a conservative .8 to err on the side of
+caution and we hide all partial correlations less than .05 for visual
+clarity.
 
 The initial network presented in Figure 1 (item labels are provided in
 Table 1) has 1,339 nonzero edges out of 11,175 possible edges (12\%).
 Several insights can be inferred about the architecture and generating
-processes of the Big Five. One, similar to Cramer et al (2012), there is
-clustering for four of the Big Five with Openness showing less cohesion.
-Two, it is possible to identify \enquote{pockets} of high interactivity
-(i.e., facets or unique item effects) by highlighting nodes with
-numerous, densely connected edges as well as their pathways to the
-larger network. For instance, there is a leadership pocket in the bottom
-of the extraversion network consisting of items about taking charge
-(Ex33), following others (Ex31), or enjoyment of project leadership
-(Ex34). Notice this cluster -- while embedded in extraversion -- is also
-distinct because it is only connected to the larger network by a few
-nodes, such as the belief one is able to persuade (Ex35) and make
-friends (Ex15) coupled with efforts to engage others (Ex5) and being
-averse to mediocre work (Co16). Its distinction and peripheral placement
-may suggest assertive aspects of Extraversion arise from social skills,
-effort to meet others, and a desire to improve the status quo (i.e., not
-be mediocre). Three, items along the Big Five borders may illuminate
-developmental pathways or feedback loops through which change spreads
-between traits. Take the conscientiousness and openness boundaries. The
-nodes in the lower left suggest the enjoyment of solving complex
-problems (O2, O3, O8) is positively linked to a high drive for
-achievement (Co17, Co18, Co19) whereas nodes in the center left show
-tolerance for variety (O9, O10, O11) as \emph{negatively} linked to
-preference for order (Co8, Co7, Co6, Co9). Such countervailing effects
-suggest reinforcing gains in two Openness components may be associated
-with diverging effects in a person's Conscientiousness network (e.g.,
-more industrious but lower order). Interestingly, there are multiple
-boundary spanning items with ideal-point properties (e.g., O9, Es16,
-Es27, Ex17, Ex18, Co2, Co8, Co11, Co12, Ag7, Ag14, Ag21) suggesting they
-help elaborate unique ways trait networks collide.
+processes of the Big Five. One, similar to (A. O. J. Cramer et al.,
+2012), there is clustering for four of the Big Five with Openness
+showing less cohesion. Two, it is possible to identify \enquote{pockets}
+of high interactivity (i.e., facets or unique item effects) by
+highlighting nodes with numerous, densely connected edges as well as
+their pathways to the larger network. For instance, there is a
+leadership pocket in the bottom of the extraversion network consisting
+of items about taking charge (Ex33), following others (Ex31), or
+enjoyment of project leadership (Ex34). Notice this cluster -- while
+embedded in extraversion -- is also distinct because it is only
+connected to the larger network by a few nodes, such as the belief one
+is able to persuade (Ex35) and make friends (Ex15) coupled with efforts
+to engage others (Ex5) and being averse to mediocre work (Co16). Its
+distinction and peripheral placement may suggest assertive aspects of
+Extraversion arise from social skills, effort to meet others, and a
+desire to improve the status quo (i.e., not be mediocre). Three, items
+along the Big Five borders may illuminate developmental pathways or
+feedback loops through which change spreads between traits. Take the
+conscientiousness and openness boundaries. The nodes in the lower left
+suggest the enjoyment of solving complex problems (O2, O3, O8) is
+positively linked to a high drive for achievement (Co17, Co18, Co19)
+whereas nodes in the center left show tolerance for variety (O9, O10,
+O11) as \emph{negatively} linked to preference for order (Co8, Co7, Co6,
+Co9). Such countervailing effects suggest reinforcing gains in two
+Openness components may be associated with diverging effects in a
+person's Conscientiousness network (e.g., more industrious but lower
+order). Interestingly, there are multiple boundary spanning items with
+ideal-point properties (e.g., O9, Es16, Es27, Ex17, Ex18, Co2, Co8,
+Co11, Co12, Ag7, Ag14, Ag21) suggesting they help elaborate unique ways
+trait networks collide.
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-4-1.pdf}
 \caption{\label{fig:unnamed-chunk-4}Network representation of 168
@@ -394,7 +333,7 @@ nodes closely together and towards the middle of the graph.}
 \end{figure}
 
 The \emph{small world} index was 2.35, which is higher than the values
-of 1.01 reported on the HEXACO facets (Constantini et al., 2015) but
+of 1.01 reported on the HEXACO facets (Costantini et al., 2015) but
 slightly lower than the 3 threshold recommended for describing a network
 as a small-world (Watts \& Strogatz, 1998). When a network shows
 small-worldness, changes in any random part of the network could quickly
@@ -421,7 +360,8 @@ personality system.
 
 \caption{\label{tab:unnamed-chunk-5}Eighteen Bridging Item Pairs}
 \centering
-\resizebox{\linewidth}{!}{\begin{tabular}[t]{lll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lll}
 \toprule
 ItemLabels & FirstItem & SecondItem\\
 \midrule
@@ -450,7 +390,7 @@ Ag3.Ex16 & When someone is in need I feel as though I have to help & I am always
 \end{tabular}}
 \end{table}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-6-1.pdf}
 \caption{\label{fig:unnamed-chunk-6}Same network results from Figure 1
@@ -492,7 +432,7 @@ Goldberg, 2005), and \enquote{modest} levels of the \enquote{proactive}
 pole, reflected in ideal-point versions of facets labeled
 \enquote{achievement striving} (Costa McCrae, \& Dye, 1991) or
 \enquote{industriousness} (Roberts et al., 2005). Similar to past
-network analyses (Constantini et al., 2015), changes in inhibitory
+network analyses (Costantini et al., 2015), changes in inhibitory
 tendencies are more likely to influence the wider personality network
 (most likely through fringe elements of conscientiousness) whereas
 changes in other portions of the personality network would similarly
@@ -514,7 +454,7 @@ mediators in connecting items. For instance, E9's focus on optimism
 helps bridge multiple components of extraversion with fear and
 self-evaluative components of emotional stability (Es28, Es27, Es18).
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-7-1.pdf}
 \caption{\label{fig:unnamed-chunk-7}Centrality plot depicting the
@@ -561,7 +501,7 @@ conscientiousness but only a few primary routes (primarily in being
 responsible or industrious) for conscientiousness to spread into
 emotional stability.
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Ideal_Point_Items_and_Network_Analysis_files/figure-latex/unnamed-chunk-8-1.pdf}
 \caption{\label{fig:unnamed-chunk-8}Network depicting the shortest paths
@@ -569,11 +509,24 @@ between Conscientiousness and Emotional Stability items. Edges belonging
 to the shortest-paths are full, while the other edges are dashed.}
 \end{figure}
 
-\section{\texorpdfstring{\textbf{Discussion}}{Discussion}}\label{discussion}
+\section{Conclusion}\label{conclusion}
+
+Our results suggests that there is promise in exploring the
+developmental applications of ideal point inventories. Many plausible
+bridges exist linking developmental trajectories across the personality
+system. Future research investigating these bridges is needed.
+Importantly for this symposium, the results indicate personality
+networks assessed by ideal point inventories are more clearly organized
+than dominance-based questionnaires (see Constantini et al., 2015),
+further bolstering the notion ideal point assessments offer a more
+realistic depiction of personality. Perhaps we will find that ideal
+point assessments can help practitioners develop ideal employees.
 
 \newpage
 
 \section{References}\label{references}
+
+\setlength{\parindent}{-0.5in} \setlength{\leftskip}{0.5in}
 
 \begin{verbatim}
 ## Warning in styling_latex_scale_down(out, table_info): Longtable cannot be
@@ -590,7 +543,10 @@ Labels & Items\\
 Labels & Items\\
 \midrule
 \endhead
-\bottomrule\endlastfoot
+\
+\endfoot
+\bottomrule
+\endlastfoot
 O1 & I find theoretical conversations extremely boring\\
 O2 & I dislike focusing on difficult problems\\
 O3 & I dislike thinking too hard about things\\
@@ -769,143 +725,94 @@ Ag24 & I always share the credit I receive on teamwork\\
 Ag25 & I always hide my motives to get what I want\\
 Ag26 & Manipulating others can be helpful\\
 Ag27 & I use flattery on occasion when dealing with others\\
-Ag28 & People often tell me that I am a genuine person\\
+Ag28 & People often tell me that I am a genuine person\\*
 \end{longtable}
 
-\setlength{\parindent}{-0.5in} \setlength{\leftskip}{0.5in}
-
 \hypertarget{refs}{}
-\hypertarget{ref-R-papaja}{}
-Aust, F., \& Barth, M. (2017). \emph{papaja: Create APA manuscripts with
-R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
+\hypertarget{ref-borsboomNetworkAnalysisIntegrative2013}{}
+Borsboom, D., \& Cramer, A. O. (2013). Network Analysis: An Integrative
+Approach to the Structure of Psychopathology. \emph{Annual Review of
+Clinical Psychology}, \emph{9}(1), 91--121.
+doi:\href{https://doi.org/10.1146/annurev-clinpsy-050212-185608}{10.1146/annurev-clinpsy-050212-185608}
 
-\hypertarget{ref-R-pander}{}
-Darczi, G., \& Tsegelskyi, R. (2015). \emph{Pander: An r pandoc writer}.
-Retrieved from \url{https://CRAN.R-project.org/package=pander}
+\hypertarget{ref-castilleBrightDarkVirtues2015}{}
+Castille, C. M. (2015). \emph{Bright or dark, or virtues and vices? A
+reexamination of the big five and job performanc}. Unpublished Doctoral
+Dissertation, Louisiana Tech University.
 
-\hypertarget{ref-R-bootnet}{}
-Epskamp, S., Borsboom, D., \& Fried, E. I. (2017). Estimating
+\hypertarget{ref-costantiniFrameworkTestingCausality2018}{}
+Costantini, G., \& Perugini, M. (2018). A Framework for Testing
+Causality in Personality Research. \emph{European Journal of
+Personality}, \emph{32}(3), 254--268.
+doi:\href{https://doi.org/10.1002/per.2150}{10.1002/per.2150}
+
+\hypertarget{ref-costantiniStateARtPersonality2015}{}
+Costantini, G., Epskamp, S., Borsboom, D., Perugini, M., Mõttus, R.,
+Waldorp, L. J., \& Cramer, A. O. J. (2015). State of the aRt personality
+research: A tutorial on network analysis of personality data in R.
+\emph{Journal of Research in Personality}, \emph{54}, 13--29.
+doi:\href{https://doi.org/10.1016/j.jrp.2014.07.003}{10.1016/j.jrp.2014.07.003}
+
+\hypertarget{ref-cramerDimensionsNormalPersonality2012}{}
+Cramer, A. O. J., van der Sluis, S., Noordhof, A., Wichers, M.,
+Geschwind, N., Aggen, S. H., \ldots{} Borsboom, D. (2012). Dimensions of
+Normal Personality as Networks in Search of Equilibrium: You Can't Like
+Parties if You Don't Like People: Dimensions of normal personality as
+networks. \emph{European Journal of Personality}, \emph{26}(4),
+414--431. doi:\href{https://doi.org/10.1002/per.1866}{10.1002/per.1866}
+
+\hypertarget{ref-deyoungCyberneticBigFive2015}{}
+DeYoung, C. G. (2015). Cybernetic Big Five Theory. \emph{Journal of
+Research in Personality}, \emph{56}, 33--58.
+doi:\href{https://doi.org/10.1016/j.jrp.2014.07.004}{10.1016/j.jrp.2014.07.004}
+
+\hypertarget{ref-dijkstraNoteTwoProblems1959}{}
+Dijkstra, E. W. (1959). A note on two problems in connexion with graphs.
+\emph{Numerische Mathematik}, \emph{1}, 269--271.
+
+\hypertarget{ref-drasgow75YearsLikert2010}{}
+Drasgow, F., Chernyshenko, O. S., \& Stark, S. (2010). 75 Years After
+Likert: Thurstone Was Right! \emph{Industrial and Organizational
+Psychology}, \emph{3}(04), 465--476.
+doi:\href{https://doi.org/10.1111/j.1754-9434.2010.01273.x}{10.1111/j.1754-9434.2010.01273.x}
+
+\hypertarget{ref-epskampEstimatingPsychologicalNetworks2018}{}
+Epskamp, S., Borsboom, D., \& Fried, E. I. (2018). Estimating
 psychological networks and their accuracy: A tutorial paper.
-\emph{Behavior Research Methods}. Retrieved from
-\url{https://arxiv.org/abs/1604.08462}
+\emph{Behavior Research Methods}, \emph{50}(1), 195--212.
+doi:\href{https://doi.org/10.3758/s13428-017-0862-1}{10.3758/s13428-017-0862-1}
 
-\hypertarget{ref-R-qgraph}{}
-Epskamp, S., Cramer, A. O. J., Waldorp, L. J., Schmittmann, V. D., \&
-Borsboom, D. (2012). qgraph: Network visualizations of relationships in
-psychometric data. \emph{Journal of Statistical Software}, \emph{48}(4),
-1--18. Retrieved from \url{http://www.jstatsoft.org/v48/i04/}
+\hypertarget{ref-fleesonWholeTraitTheory2015}{}
+Fleeson, W., \& Jayawickreme, E. (2015). Whole Trait Theory.
+\emph{Journal of Research in Personality}, \emph{56}, 82--92.
+doi:\href{https://doi.org/10.1016/j.jrp.2014.10.009}{10.1016/j.jrp.2014.10.009}
 
-\hypertarget{ref-R-Hmisc}{}
-Harrell Jr, F. E., Charles Dupont, \& others. (2017). \emph{Hmisc:
-Harrell miscellaneous}. Retrieved from
-\url{https://CRAN.R-project.org/package=Hmisc}
+\hypertarget{ref-newmanNetworks2010}{}
+Newman, M. (2010). \emph{Networks} (Second Edition.). Oxford, UK: Oxford
+University.
 
-\hypertarget{ref-R-mgm}{}
-Haslbeck, J. M. B., \& Waldorp, L. J. (2016). Mgm: Structure estimation
-for time-varying mixed graphical models in high-dimensional data.
-\emph{ArXiv Preprint:1510.06871v2}. Retrieved from
-\url{http://arxiv.org/abs/1510.06871v2}
+\hypertarget{ref-opsahlNodeCentralityWeighted2010}{}
+Opsahl, T., Agneessens, F., \& Skvoretz, J. (2010). Node centrality in
+weighted networks: Generalizing degree and shortest paths. \emph{Social
+Networks}, \emph{32}(3), 245--251.
+doi:\href{https://doi.org/10.1016/j.socnet.2010.03.006}{10.1016/j.socnet.2010.03.006}
 
-\hypertarget{ref-R-corrr}{}
-Jackson, S. (2016). \emph{Corrr: Correlations in r}. Retrieved from
-\url{https://CRAN.R-project.org/package=corrr}
+\hypertarget{ref-robertsStructureConscientiousnessEmpirical2005}{}
+Roberts, B. W., Chernyshenko, O. S., Stark, S., \& Goldberg, L. R.
+(2005). The structure of conscientiousness: An empirical investigation
+based on seven major personality questionnaires. \emph{Personnel
+Psychology}, \emph{58}(1), 103--139.
+doi:\href{https://doi.org/10.1111/j.1744-6570.2005.00301.x}{10.1111/j.1744-6570.2005.00301.x}
 
-\hypertarget{ref-R-RCurl}{}
-Lang, D. T., \& CRAN team. (2016). \emph{RCurl: General network
-(http/ftp/.) client interface for r}. Retrieved from
-\url{https://CRAN.R-project.org/package=RCurl}
+\hypertarget{ref-wattsCollectiveDynamicsSmallWorld1998}{}
+Watts, D., \& Strogatz, S. (1998). Collective Dynamics of Small-World
+Networks. \emph{Nature}, \emph{393}, 3.
 
-\hypertarget{ref-R-base}{}
-R Core Team. (2016). \emph{R: A language and environment for statistical
-computing}. Vienna, Austria: R Foundation for Statistical Computing.
-Retrieved from \url{https://www.R-project.org/}
-
-\hypertarget{ref-R-psych}{}
-Revelle, W. (2016). \emph{Psych: Procedures for psychological,
-psychometric, and personality research}. Evanston, Illinois:
-Northwestern University. Retrieved from
-\url{https://CRAN.R-project.org/package=psych}
-
-\hypertarget{ref-R-lavaan}{}
-Rosseel, Y. (2012). lavaan: An R package for structural equation
-modeling. \emph{Journal of Statistical Software}, \emph{48}(2), 1--36.
-Retrieved from \url{http://www.jstatsoft.org/v48/i02/}
-
-\hypertarget{ref-R-lattice}{}
-Sarkar, D. (2008). \emph{Lattice: Multivariate data visualization with
-r}. New York: Springer. Retrieved from
-\url{http://lmdvr.r-forge.r-project.org}
-
-\hypertarget{ref-R-bitops}{}
-Steve Dutky initial R port, S. original by, Martin Maechler; revised, \&
-Steve Dutky. (2013). \emph{Bitops: Bitwise operations}. Retrieved from
-\url{https://CRAN.R-project.org/package=bitops}
-
-\hypertarget{ref-R-survival-book}{}
-Terry M. Therneau, \& Patricia M. Grambsch. (2000). \emph{Modeling
-survival data: Extending the Cox model}. New York: Springer.
-
-\hypertarget{ref-R-ggplot2}{}
-Wickham, H. (2009). \emph{Ggplot2: Elegant graphics for data analysis}.
-Springer-Verlag New York. Retrieved from \url{http://ggplot2.org}
-
-\hypertarget{ref-R-purrr}{}
-Wickham, H. (2016). \emph{Purrr: Functional programming tools}.
-Retrieved from \url{https://CRAN.R-project.org/package=purrr}
-
-\hypertarget{ref-R-stringr}{}
-Wickham, H. (2017a). \emph{Stringr: Simple, consistent wrappers for
-common string operations}. Retrieved from
-\url{https://CRAN.R-project.org/package=stringr}
-
-\hypertarget{ref-R-tidyr}{}
-Wickham, H. (2017b). \emph{Tidyr: Easily tidy data with 'spread()' and
-'gather()' functions}. Retrieved from
-\url{https://CRAN.R-project.org/package=tidyr}
-
-\hypertarget{ref-R-tidyverse}{}
-Wickham, H. (2017c). \emph{Tidyverse: Easily install and load
-'tidyverse' packages}. Retrieved from
-\url{https://CRAN.R-project.org/package=tidyverse}
-
-\hypertarget{ref-R-dplyr}{}
-Wickham, H., \& Francois, R. (2016). \emph{Dplyr: A grammar of data
-manipulation}. Retrieved from
-\url{https://CRAN.R-project.org/package=dplyr}
-
-\hypertarget{ref-R-tibble}{}
-Wickham, H., Francois, R., \& Mller, K. (2016). \emph{Tibble: Simple
-data frames}. Retrieved from
-\url{https://CRAN.R-project.org/package=tibble}
-
-\hypertarget{ref-R-readr}{}
-Wickham, H., Hester, J., \& Francois, R. (2016). \emph{Readr: Read
-tabular data}. Retrieved from
-\url{https://CRAN.R-project.org/package=readr}
-
-\hypertarget{ref-R-knitr}{}
-Xie, Y. (2015). \emph{Dynamic documents with R and knitr} (2nd ed.).
-Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from
-\url{https://yihui.name/knitr/}
-
-\hypertarget{ref-R-careless}{}
-Yentes, R. (2016). \emph{Careless: Procedures for computing indices of
-careless responding.}
-
-\hypertarget{ref-R-Formula}{}
-Zeileis, A., \& Croissant, Y. (2010). Extended model formulas in R:
-Multiple parts and multiple responses. \emph{Journal of Statistical
-Software}, \emph{34}(1), 1--13. Retrieved from
-\url{http://www.jstatsoft.org/v34/i01/}
-
-\hypertarget{ref-R-kableExtra}{}
-Zhu, H. (2017). \emph{KableExtra: Construct complex table with 'kable'
-and pipe syntax}. Retrieved from
-\url{https://CRAN.R-project.org/package=kableExtra}
-
-
-
-
+\hypertarget{ref-woodHowFunctionalistProcess2015}{}
+Wood, D., Gardner, M. H., \& Harms, P. D. (2015). How functionalist and
+process approaches to behavior can explain trait covariation.
+\emph{Psychological Review}, \emph{122}(1), 84--111.
+doi:\href{https://doi.org/10.1037/a0038423}{10.1037/a0038423}
 
 
 \end{document}

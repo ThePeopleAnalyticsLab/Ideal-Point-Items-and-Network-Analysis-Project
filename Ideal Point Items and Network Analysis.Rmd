@@ -1,41 +1,78 @@
 ---
-title             : "Applying Network Analysis to Ideal Point Personality Item Responses"
-shorttitle        : "An Exploratory Analysis"
+title             : "Using Ideal Point Assessments to Develop Ideal Employees: An Inductive Approach"
+shorttitle        : "Developing Ideal Employees"
 
 author: 
   - name          : "Dan Simonet"
     affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
-    email         : "my@email.com"
+    corresponding : no    # Define only one corresponding author
+    email         : "simonetd@mail.montclair.edu"
   - name          : "Christopher M. Castille"
     affiliation   : "2"
+  - name          : "Alexandra Harris"
+    affiliation   : "3" 
 
 affiliation:
   - id            : "1"
     institution   : "Montclair State University"
   - id            : "2"
     institution   : "Nicholls State University"
+  - id            : "3"
+    institution   : "University of Georgia"
 
 author_note: >
-  Dan Simonet is an Assistant Professor of Psychology at Montclair State University. Christopher M. Castille is an Assistant Professor of Management and Marketing at Nicholls State University. 
-
-abstract: >
-  Personality researchers have recently taken interest in two methodological innovations network analysis and ideal point item writing strategies. The former suggests that personality is best understood as a system of mutually reinforcing actions while the latter allows more precise measurement of personality components. Here, we explore the value of integrating these two innovations by exploring the network properties of a Big Five inventory constructed with ideal-point items. 
+  Dan Simonet is an Assistant Professor of Psychology at Montclair State University. Christopher M. Castille is an Assistant Professor of Management and Marketing at Nicholls State University. Alexandra Harris is a Doctoral Student in I/O Psychology at the University of Georgia. 
   
-keywords          : "ideal point, personality, network analysis"
-wordcount         : "XXXX"
+abstract: |
+  We explore the possibility of applying network analysis to ideal point personality assessment data. We illustrate how employee personality data might be used as part of coaching interventions in order to develop employee into ideal organizational citizens.
+  
+header-includes:
+  - |
+    \usepackage{setspace}
+    \makeatletter
+    \renewcommand{\maketitle}{%
+      \singlespacing{%
+        \@ifundefined{@title}{}{%
+          Poster\newline
+          TITLE\newline
+          \@title\par\par
+        }
+        
+        \@ifundefined{@shorttitle}{}{%
+          SHORTENED TITLE\newline
+          \@shorttitle\par\par
+        }
+      
+        \@ifundefined{@abstract}{}{%
+          ABSTRACT\newline
+          \@abstract\par\par
+        }
+        
+        PRESS PARAGRAPH\newline
+        In recent years interest in ideal point measures has increased in the field of personality assessment among both researchers and practitioners. This submission focuses on the utility of the application of ideal point analysis to gain a more accurate profile of both potential and current employees. More specifically, we focus on how network analysis, if applied to ideal point personality assessment data, might be used to coach employees into ideal organizational citizens. 
 
+
+        \par\par
+        
+        WORD COUNT\newline
+        2588
+        \clearpage
+      }
+    }
+    \makeatother
+  
 bibliography      : ["r-references.bib"]
 
-figsintext        : no
+floatsintext      : no
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-lineno            : yes
+lineno            : no
+mask              : no
+draft             : no
 
-lang              : "english"
-class             : "man"
+#documentclass     : "apa6"
+classoption       : "man"
 output            : papaja::apa6_pdf
 ---
 
@@ -47,35 +84,31 @@ lapply(libs, require, character.only = T)
 #Note: to access the Google Doc version of this manuscript, see this link: https://docs.google.com/document/d/1it0NpMMMU7aKXdSFGkjxs28XQ5ioiHhGNZY2kC9lTEg/edit
 ```
 
-# **Introduction** 
+# Introduction
 
-Recent findings suggests self-report inventories conform to an ideal point process in which persons endorse items only to the extent the item content reflects the respondent’s level of the attribute, or \(\Theta\). Modeling the correct response process in personality assessment produces several psychometric benefits, such as improved dimensionality, higher total test information, and revelation of curvilinear effects (Drasgow, Chernyshenko, & Stark, 2010). One reason for such gains is the ideal point perspective retains items assessing low, intermediate, and high trait values and, thus, creates an instrument providing greater measurement precisions across a broad range of a targeted attribute. 
+Recent findings suggests self-report inventories conform to an ideal point process in which persons endorse items only to the extent the item content reflects the respondent’s level of the attribute, or \(\Theta\). Modeling the correct response process in personality assessment produces several psychometric benefits, such as improved dimensionality, higher total test information, and revelation of curvilinear effects [@drasgow75YearsLikert2010]. One reason for such gains is the ideal point perspective retains items assessing low, intermediate, and high trait values and, thus, creates an instrument providing greater measurement precisions across a broad range of a targeted attribute. 
 
-Due to its methodological nature, ideal-point research has focused largely on technical issues, such as appropriate item writing strategies, model fitting, or validity gains. Surprisingly little work has been done to explore the advantages of ideal-point inventories to understanding personality itself, such as explaining where traits come from, how they operate, and how they produce differences in behavior. These questions lie at the heart of the discipline (Fleeson & Jayawickreme, 2015) and carry theoretical implications for understanding why personality predicts work behavior and how personality changes over time (i.e., selection and development). Given that ideal-point inventories capture a wider array of elemental differences in emotions, thoughts, and behaviors constituting the Big Five, they may especially suited to identifying plausible mechanisms through which personality processes (deliberation, emotional regulation) accrue to form traits (individual differences). 
+Due to its methodological nature, ideal-point research has focused largely on technical issues, such as appropriate item writing strategies, model fitting, or validity gains. Surprisingly little work has been done to explore the advantages of ideal-point inventories to understanding personality itself, such as explaining where traits come from, how they operate, and how they produce differences in behavior. These questions lie at the heart of the discipline [@fleesonWholeTraitTheory2015] and carry theoretical implications for understanding why personality predicts work behavior and how personality changes over time (i.e., selection and development). Given that ideal-point inventories capture a wider array of elemental differences in emotions, thoughts, and behaviors constituting the Big Five, they may especially suited to identifying plausible mechanisms through which personality processes (deliberation, emotional regulation) accrue to form traits (individual differences). 
 
-Drawing upon a psychometric network approach to individual differences (Cramer et al., 2012), we recast the Big Five as a dynamic system of directly interacting feelings, thoughts, and behaviors. Rather than treat ‘hidden traits’ as causal forces lying behind stable behavioral patterns, the network approach models traits as consequences of mutually reinforcing interactions between specific thoughts, feelings, and behaviors (see Figure 1 for illustration). From this perspective, discrete actions like working hard to attain long-term goals, planning one’s week, and focusing on a task to completion in a person high on Conscientiousness do not co-occur because of a top-down latent disposition, but because deciding to care about a long-term goal leads one to be more disciplined in allocation of personal resources. Forces bonding autonomous acts into trait clusters might be shared biological origins, learning principles, socially enforced norms, or functional aims that produce accretion of multiple explanatory mechanisms which unite for causal, homeostatic, or logical reasons (Cramer et al., 2012; Fleeson & Jayawickreme, 2015; Wood, Gardner, & Harms, 2015). 
+Drawing upon a psychometric network approach to individual differences [@cramerDimensionsNormalPersonality2012], we recast the Big Five as a dynamic system of directly interacting feelings, thoughts, and behaviors. Rather than treat ‘hidden traits’ as causal forces lying behind stable behavioral patterns, the network approach models traits as consequences of mutually reinforcing interactions between specific thoughts, feelings, and behaviors (see Figure 1 for illustration). From this perspective, discrete actions like working hard to attain long-term goals, planning one’s week, and focusing on a task to completion in a person high on Conscientiousness do not co-occur because of a top-down latent disposition, but because deciding to care about a long-term goal leads one to be more disciplined in allocation of personal resources. Forces bonding autonomous acts into trait clusters might be shared biological origins, learning principles, socially enforced norms, or functional aims that produce accretion of multiple explanatory mechanisms which unite for causal, homeostatic, or logical reasons [@cramerDimensionsNormalPersonality2012; @fleesonWholeTraitTheory2015; @woodHowFunctionalistProcess2015]. 
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 6, fig.align = "center", fig.cap = "Trait model according to a latent variable (left panel) and a network perspective (right panel)"}
-knitr::include_graphics("C:/Users/Simmy566/Documents/Ideal-Point-Items-and-Network-Analysis-Project/Latnet_fig1.png")
+knitr::include_graphics("Latnet_fig1.png")
 ```
 
-More importantly, the network perspective can provide a better view of the cognitive, motivational, and functional dynamics characterizing the development of the personality system, therefore favoring empirical investigations of such mechanisms. Incorporating ideal point items may offer further insight into trait development by pinpointing intermediate ranges of a trait continuum (i.e., nodes) which incrementally ‘bridge’ personality components across distinct clusters (Borsboom & Cramer, 2013). For instance, the conscientiousness item ‘I tend to be disorderly but also like to keep certain things tidy’ may bridge the agreeableness item of ‘I don’t like to let others down’ to the remaining network of conscientiousness items. Why? Because development in compassion arising from social roles (e.g., serious relationships, care for family) might elevate conscientiousness by causing individuals to start bringing personal affairs in order. That is, when we begin caring about others we may try to get our ‘act together’ in order to meet social responsibilities. Such effects may be less evident in extreme items (I always keep my affairs in order) because developmental processes are gradual and better seen in intermediate steps. By finding and pulling these functional levers (i.e., intermediate items), we may be able to nudge people to change in productive ways on multiple dimensions (or traits) which has implications for executive coaching and trait interventions. 
+More importantly, the network perspective can provide a better view of the cognitive, motivational, and functional dynamics characterizing the development of the personality system, therefore favoring empirical investigations of such mechanisms. Incorporating ideal point items may offer further insight into trait development by pinpointing intermediate ranges of a trait continuum (i.e., nodes) which incrementally ‘bridge’ personality components across distinct clusters [@borsboomNetworkAnalysisIntegrative2013]. For instance, the conscientiousness item ‘I tend to be disorderly but also like to keep certain things tidy’ may bridge the agreeableness item of ‘I don’t like to let others down’ to the remaining network of conscientiousness items. Why? Because development in compassion arising from social roles (e.g., serious relationships, care for family) might elevate conscientiousness by causing individuals to start bringing personal affairs in order. That is, when we begin caring about others we may try to get our ‘act together’ in order to meet social responsibilities. Such effects may be less evident in extreme items (I always keep my affairs in order) because developmental processes are gradual and better seen in intermediate steps. By finding and pulling these functional levers (i.e., intermediate items), we may be able to nudge people to change in productive ways on multiple dimensions (or traits) which has implications for executive coaching and trait interventions. 
 
-The current study unifies these methodological innovations by applying network analyses to a Big Five instrument developed with ideal-point item writing strategies. We contrast four major network properties with research exploring similar properties of common Big Five inventories (Cramer et al., 2012; Constantini et al., 2015; Constantini & Perugini, 2016). The first is the topology, or *large-scale structure*, of the Big Five including global node arrangement and degree to which nodes cluster together while distances between any two nodes remain small (*small-worldness*; Constantini et al., 2015). Two, we identify the nature and content of cross-trait item pairings to identify possible *bridging* components explaining observed covariance between trait factors (e.g., why do agreeable people tend to be conscientious). Three, we compare the most “central” and “peripheral” nodes with the nature of the central facets identified in past publications. Nodes which are central play a more prominent role in connecting elements of the personality system and, consequentially, may be idea targets for intervention if desiring to shift one’s personality. Finally, given the general importance of emotional stability and conscientiousness for job performance across occupations, we examine the *shortest* pathways that may explain the route through which changes in emotional stability (conscientiousness) may facilitate changes in conscientiousness (emotional stability). In all cases, we highlight areas where ideal-point items play a role in facilitating information flow in the Big Five network. 
+The current study unifies these methodological innovations by applying network analyses to a Big Five instrument developed with ideal-point item writing strategies. We contrast four major network properties with research exploring similar properties of common Big Five inventories [@costantiniFrameworkTestingCausality2018; @costantiniStateARtPersonality2015; @cramerDimensionsNormalPersonality2012]. The first is the topology, or *large-scale structure*, of the Big Five including global node arrangement and degree to which nodes cluster together while distances between any two nodes remain small [*small-worldness*; @costantiniStateARtPersonality2015]. Two, we identify the nature and content of cross-trait item pairings to identify possible *bridging* components explaining observed covariance between trait factors (e.g., why do agreeable people tend to be conscientious). Three, we compare the most “central” and “peripheral” nodes with the nature of the central facets identified in past publications. Nodes which are central play a more prominent role in connecting elements of the personality system and, consequentially, may be idea targets for intervention if desiring to shift one’s personality. Finally, given the general importance of emotional stability and conscientiousness for job performance across occupations, we examine the *shortest* pathways that may explain the route through which changes in emotional stability (conscientiousness) may facilitate changes in conscientiousness (emotional stability). In all cases, we highlight areas where ideal-point items play a role in facilitating information flow in the Big Five network. 
 
-# **Methods and Results**
-Given space limits yet novelty of network terminology, the methods and results are presented concurrently. 
-
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
-
-## Participants
-
-## Measure
+# Methods and Results
+Given space limits yet novelty of network terminology, the methods and results are presented concurrently. The data for this study come from a sample (n = 677) of working employees from Amazon’s Mechanical Turk (MTurk) who completed a suite of ideal point personality assessments capturing the Big Five Aspects [see @castilleBrightDarkVirtues2015; @deyoungCyberneticBigFive2015]. The marginal reliabilities of these assessments were all acceptable (ρ > .82). Psychometric network analyses [@costantiniStateARtPersonality2015] involved casting items as nodes connected by lines, the strength of which corresponds to the strength of the GLASSO regularized partial correlations linking said nodes. The initial network is presented in Figure 1 (item labels provided in Table 1). 
 
 ```{r, echo = FALSE}
 #data
 require(RCurl)
-data <- read.csv(text=getURL("https://raw.githubusercontent.com/ThePeopleAnalyticsLab/Ideal-Point-Items-and-Network-Analysis-Project/master/data.csv"), header=T)
+require(readr)
+require(dplyr)
+data <- read_csv("Data/data.csv")
 
 #####   Organize Dataset    ##### 
 personality <- data[c(69:236)]
@@ -96,18 +129,9 @@ names <- colnames(personality1)
 #Note: The dataset "personality" contains all the item responses.  
 ```
 
-## Material
+Personality networks present items as nodes connected by edges representing statistical relationships. We implemented a Gaussian Graphical Model (GGM) on a polychoric correlation matrix using a graphical least absolute shrinkage and selection (glasso) with the extended EBIC criterium in *qgraph* 1.4.3 [@epskampEstimatingPsychologicalNetworks2018]. There are two things to note. First, the glasso avoids spurious associations by using *regularization* to assign penalties so all edges are shrunk with small edges being set to zero. This results in a *sparse* (i.e., conservative) network that safeguards against overfitting by modeling covariance among components with as few connections as possible. Second, because the network uses partial correlations, all edges imply a relationship exists after controlling for all other nodes. Because the model is uniquely specified, it facilitates clear and unambiguous interpretation of edge-weight parameters as the strength of *unique* associations providing a putative causal skeleton. Given the larger number of items, the EBIC hyperparameter was set to a conservative .8 to err on the side of caution and we hide all partial correlations less than .05 for visual clarity.
 
-## Procedure
-
-## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
-
-### Estimating and Visualizing the Network
-
-Personality networks present items as nodes connected by edges representing statistical relationships. We implemented a Gaussian Graphical Model (GGM) on a polychoric correlation matrix using a graphical least absolute shrinkage and selection (glasso) with the extended EBIC criterium in *qgraph* 1.4.3 (Epskamp, Borsboom, & Fried, 2017; Friedman et al., 2008). There are two things to note. First, the glasso avoids spurious associations by using *regularization* to assign penalties so all edges are shrunk with small edges being set to zero. This results in a *sparse* (i.e., conservative) network that safeguards against overfitting by modeling covariance among components with as few connections as possible. Second, because the network uses partial correlations, all edges imply a relationship exists after controlling for all other nodes. Because the model is uniquely specified, it facilitates clear and unambiguous interpretation of edge-weight parameters as the strength of *unique* associations providing a putative causal skeleton. Given the larger number of items, the EBIC hyperparameter was set to a conservative .8 to err on the side of caution and we hide all partial correlations less than .05 for visual clarity.
-
-The initial network presented in Figure 1 (item labels are provided in Table 1) has 1,339 nonzero edges out of 11,175 possible edges (12%). Several insights can be inferred about the architecture and generating processes of the Big Five. One, similar to Cramer et al (2012), there is clustering for four of the Big Five with Openness showing less cohesion. Two, it is possible to identify “pockets” of high interactivity (i.e., facets or unique item effects) by highlighting nodes with numerous, densely connected edges as well as their pathways to the larger network. For instance, there is a leadership pocket in the bottom of the extraversion network consisting of items about taking charge (Ex33), following others (Ex31), or enjoyment of project leadership (Ex34). Notice this cluster – while embedded in extraversion – is also distinct because it is only connected to the larger network by a few nodes, such as the belief one is able to persuade (Ex35) and make friends (Ex15) coupled with efforts to engage others (Ex5) and being averse to mediocre work (Co16). Its distinction and peripheral placement may suggest assertive aspects of Extraversion arise from social skills, effort to meet others, and a desire to improve the status quo (i.e., not be mediocre). Three, items along the Big Five borders may illuminate developmental pathways or feedback loops through which change spreads between traits. Take the conscientiousness and openness boundaries. The nodes in the lower left suggest the enjoyment of solving complex problems (O2, O3, O8) is positively linked to a high drive for achievement (Co17, Co18, Co19) whereas nodes in the center left show tolerance for variety (O9, O10, O11) as *negatively* linked to preference for order (Co8, Co7, Co6, Co9). Such countervailing effects suggest reinforcing gains in two Openness components may be associated with diverging effects in a person’s Conscientiousness network (e.g., more industrious but lower order). Interestingly, there are multiple boundary spanning items with ideal-point properties (e.g., O9, Es16, Es27, Ex17, Ex18, Co2, Co8, Co11, Co12, Ag7, Ag14, Ag21) suggesting they help elaborate unique ways trait networks collide. 
+The initial network presented in Figure 1 (item labels are provided in Table 1) has 1,339 nonzero edges out of 11,175 possible edges (12%). Several insights can be inferred about the architecture and generating processes of the Big Five. One, similar to [@cramerDimensionsNormalPersonality2012], there is clustering for four of the Big Five with Openness showing less cohesion. Two, it is possible to identify “pockets” of high interactivity (i.e., facets or unique item effects) by highlighting nodes with numerous, densely connected edges as well as their pathways to the larger network. For instance, there is a leadership pocket in the bottom of the extraversion network consisting of items about taking charge (Ex33), following others (Ex31), or enjoyment of project leadership (Ex34). Notice this cluster – while embedded in extraversion – is also distinct because it is only connected to the larger network by a few nodes, such as the belief one is able to persuade (Ex35) and make friends (Ex15) coupled with efforts to engage others (Ex5) and being averse to mediocre work (Co16). Its distinction and peripheral placement may suggest assertive aspects of Extraversion arise from social skills, effort to meet others, and a desire to improve the status quo (i.e., not be mediocre). Three, items along the Big Five borders may illuminate developmental pathways or feedback loops through which change spreads between traits. Take the conscientiousness and openness boundaries. The nodes in the lower left suggest the enjoyment of solving complex problems (O2, O3, O8) is positively linked to a high drive for achievement (Co17, Co18, Co19) whereas nodes in the center left show tolerance for variety (O9, O10, O11) as *negatively* linked to preference for order (Co8, Co7, Co6, Co9). Such countervailing effects suggest reinforcing gains in two Openness components may be associated with diverging effects in a person’s Conscientiousness network (e.g., more industrious but lower order). Interestingly, there are multiple boundary spanning items with ideal-point properties (e.g., O9, Es16, Es27, Ex17, Ex18, Co2, Co8, Co11, Co12, Ag7, Ag14, Ag21) suggesting they help elaborate unique ways trait networks collide. 
 
 ```{r, echo=FALSE, warning=FALSE, fig.cap = "Network representation of 168 ideal-point inventory modeled after the NEO-PI facet structure. Each item is represented by a node, and the node number corresponds to the item statements in Table 1. Nodes are connected by green (red) lines if they are positively (negatively) correlated. Line thickness corresponds to correlation strength. The spring-bsaed algorithm (Fruchterman & Reingold, 1991) used to generate the graph places strongly correlated nodes closely together and towards the middle of the graph."}
 
@@ -117,7 +141,10 @@ big5groups <- c(rep("Openness", 27), rep("Emotional Stability", 28), rep("Extrav
                 rep("Conscientiousness", 31), rep("Agreeableness", 28))
 
 ### Estimate large network using LASSO with conservative EBIC ####
-
+require(bootnet)
+require(qgraph)
+require(knitr)
+require(kableExtra)
 results <- estimateNetwork(personality1, 
                            default = "EBICglasso",
                            corMethod = "cor_auto",
@@ -129,7 +156,7 @@ q <- qgraph(results$graph, layout = "spring",
        vsize = 3, esize = 6) ### Increase size of nodes; accentuate largest edges
 ```
 
-The *small world* index was 2.35, which is higher than the values of 1.01 reported on the HEXACO facets (Constantini et al., 2015) but slightly lower than the 3 threshold recommended for describing a network as a small-world (Watts & Strogatz, 1998). When a network shows small-worldness, changes in any random part of the network could quickly spread across the whole system by allowing different clusters (e.g., traits) to directly influence one another (Watts & Strogatz, 1998). Results suggest the current inventory is more clearly organized than dominance-based questionnaires into separate sub-systems (e.g., the Big Five with exception of Openness) which themselves influence one another by means of bridging connections. To illustrate the bridging components linking the Big Five, the initial network was arranged by the Big Five clusters with only partial correlations > .10 displayed (see Figure 2). Eighteen cross-trait item pairings remained (presented in Table 2) which might explain the often-substantial inter-correlations observed between personality factors. Whereas the reason for some linkages is not apparent (Ag23/Co3), others are commonly alluded to in the literature such as the demand for both positive affect and difficult goals in being ambitious and driven at work (e.g., Co15/Ex22). This small-world structure may be masked in personality forms developed to conform to simple structure (Constantini & Perugi, 2016) suggesting an ideal point inventory may offer a more realistic depiction of the personality system.
+The *small world* index was 2.35, which is higher than the values of 1.01 reported on the HEXACO facets [@costantiniStateARtPersonality2015] but slightly lower than the 3 threshold recommended for describing a network as a small-world [@wattsCollectiveDynamicsSmallWorld1998]. When a network shows small-worldness, changes in any random part of the network could quickly spread across the whole system by allowing different clusters (e.g., traits) to directly influence one another [@wattsCollectiveDynamicsSmallWorld1998]. Results suggest the current inventory is more clearly organized than dominance-based questionnaires into separate sub-systems (e.g., the Big Five with exception of Openness) which themselves influence one another by means of bridging connections. To illustrate the bridging components linking the Big Five, the initial network was arranged by the Big Five clusters with only partial correlations > .10 displayed (see Figure 2). Eighteen cross-trait item pairings remained (presented in Table 2) which might explain the often-substantial inter-correlations observed between personality factors. Whereas the reason for some linkages is not apparent (Ag23/Co3), others are commonly alluded to in the literature such as the demand for both positive affect and difficult goals in being ambitious and driven at work (e.g., Co15/Ex22). This small-world structure may be masked in personality forms developed to conform to simple structure (Constantini & Perugi, 2016) suggesting an ideal point inventory may offer a more realistic depiction of the personality system.
 
 ```{r, echo = FALSE,  Warning=FALSE, results = 'asis'}
 y <- data.frame(ItemLabels = c('Ag28.O26', 'Ag13.Co5', 'Ag14.Co25',
@@ -178,7 +205,6 @@ y <- data.frame(ItemLabels = c('Ag28.O26', 'Ag13.Co5', 'Ag14.Co25',
 kable(y, booktabs = T, caption = "Eighteen Bridging Item Pairs") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"))
 ```
-
 ```{r, echo = FALSE, fig.cap = "Same network results from Figure 1 rearranged by Big Five groupings and restricted to display partial correlations .10 or greater. Visualized edges depict strong residual item associations within and between trait factors."}
 
 ### Rearrange nodes and minimize more edges. Highlights the unique clusters but also cross-trait components which remain even in the regularized matrix (akin to correlated item residuals in a factor model) ### 
@@ -192,9 +218,9 @@ g <- qgraph(results$graph, layout = "groups", ###Arrange nodes by Big5
 
 ### Centrality Estimation
 
-A typical way of assessing node importance is to compute centrality indices of the network structure (Costantini et al., 2015; Newman, 2010; Opsahl, Agneessens, & Skvoretz, 2010). Three such measures are (1) *node strength*, quantifying how well a node is directly connected to other nodes by summing all of its absolute edges, (2) *closeness*, quantifying how well a node is indirectly connected to other nodes by taking the inverse of all shortest path lengths between the node and all other nodes, and (3) *betweeness*, quantifying how important a node is in the average path between two other nodes. While such indices often agree, it is possible for a node to be high on one index but low on another. For instance, the Amsterdam airport would score high on *strength* as many airports fly planes in and out of Amsterdam. Comparatively, the airport in Anchorage, Alaska, while low on strength in terms of absolute number of connections, is actually higher than Amsterdam on *betweenness* because it serves as a common hub indirectly connecting many international airports to each other via oversea flights.
+A typical way of assessing node importance is to compute centrality indices of the network structure [@costantiniStateARtPersonality2015; @newmanNetworks2010; @opsahlNodeCentralityWeighted2010]. Three such measures are (1) *node strength*, quantifying how well a node is directly connected to other nodes by summing all of its absolute edges, (2) *closeness*, quantifying how well a node is indirectly connected to other nodes by taking the inverse of all shortest path lengths between the node and all other nodes, and (3) *betweeness*, quantifying how important a node is in the average path between two other nodes. While such indices often agree, it is possible for a node to be high on one index but low on another. For instance, the Amsterdam airport would score high on *strength* as many airports fly planes in and out of Amsterdam. Comparatively, the airport in Anchorage, Alaska, while low on strength in terms of absolute number of connections, is actually higher than Amsterdam on *betweenness* because it serves as a common hub indirectly connecting many international airports to each other via oversea flights.
 
-The centrality plots appear in Figure 4. Several Agreeableness and Conscientiousness items were highly influential across indices, especially those dealing with manipulation (Ag25, Ag26), deliberation in action and decision making (Co1, Co5, Co20), or holding ‘moderate’ amounts of motivation (Co31, Co25). The most central conscientiousness items reflect both the “inhibitive” pole of the trait, recognized in facets broadly referring to control over one’s impulses as seen in facets such as “orderly” (Jackson et al., 2010) or “self-control” (Roberts, Chernyshenko, Stark, & Goldberg, 2005), and ‘modest’ levels of the “proactive” pole, reflected in ideal-point versions of facets labeled “achievement striving” (Costa McCrae, & Dye, 1991) or “industriousness” (Roberts et al., 2005). Similar to past network analyses (Constantini et al., 2015), changes in inhibitory tendencies are more likely to influence the wider personality network (most likely through fringe elements of conscientiousness) whereas changes in other portions of the personality network would similarly impact tendencies towards restraint. More interesting, the proactive ideal-point conscientiousness items (Co31, Co25) had higher centrality indices due to their role in linking the lager conscientiousness network to agreeableness and extraversion. 
+The centrality plots appear in Figure 4. Several Agreeableness and Conscientiousness items were highly influential across indices, especially those dealing with manipulation (Ag25, Ag26), deliberation in action and decision making (Co1, Co5, Co20), or holding ‘moderate’ amounts of motivation (Co31, Co25). The most central conscientiousness items reflect both the “inhibitive” pole of the trait, recognized in facets broadly referring to control over one’s impulses as seen in facets such as “orderly” (Jackson et al., 2010) or “self-control” [@robertsStructureConscientiousnessEmpirical2005], and ‘modest’ levels of the “proactive” pole, reflected in ideal-point versions of facets labeled “achievement striving” (Costa McCrae, & Dye, 1991) or “industriousness” [@robertsStructureConscientiousnessEmpirical2005]. Similar to past network analyses [@costantiniStateARtPersonality2015], changes in inhibitory tendencies are more likely to influence the wider personality network (most likely through fringe elements of conscientiousness) whereas changes in other portions of the personality network would similarly impact tendencies towards restraint. More interesting, the proactive ideal-point conscientiousness items (Co31, Co25) had higher centrality indices due to their role in linking the lager conscientiousness network to agreeableness and extraversion. 
 
 Items from additional traits also had relatively high betweeness-centrality, meaning they occupied strategic positions connecting several groups of nodes that would be connected by longer paths without these particular items. These include Ex9 (I always look at the bright side of life), Ex16 (I am always friendly to people), Es18 (I always feel great about the person that I am), Es11 (I have a good amount of control on my cravings), and, to a lesser extent, O7 (I enjoy having abstract or philosophical conversations). By examining Figure 1 you can visualize in what respect these nodes serve as important mediators in connecting items. For instance, E9’s focus on optimism helps bridge multiple components of extraversion with fear and self-evaluative components of emotional stability (Es28, Es27, Es18).
 
@@ -217,7 +243,7 @@ g
 
 ### Shortest Pathway between Emotional Stability and Conscientiousness
 
-Finally, a network illustrating the shortest paths between all conscientiousness and emotional stability items was computed (see Figure 5). In comparison to the first network, these networks clarify possible pathways and mediating items between these two factors. The shortest path between 2 nodes represents the minimum number of steps needed to go from one node to another, and is computed using Dijkstra’s algorithm (Dijkstra, 1959). This can be seen as a roadmap including all possible routes from destination A to destination B, but only one of these routes being quicker—this would then be the route highlighted in the shortest path network. 
+Finally, a network illustrating the shortest paths between all conscientiousness and emotional stability items was computed (see Figure 5). In comparison to the first network, these networks clarify possible pathways and mediating items between these two factors. The shortest path between 2 nodes represents the minimum number of steps needed to go from one node to another, and is computed using Dijkstra’s algorithm [@dijkstraNoteTwoProblems1959]. This can be seen as a roadmap including all possible routes from destination A to destination B, but only one of these routes being quicker—this would then be the route highlighted in the shortest path network. 
 
 Our network illustrates the shortest path between multiple items hence highlights a diverse array of routes linking conscientiousness and emotional stability. A few general observations. First, the nodes Co21 (Tendency to misjudge situations), Es13 (Sometimes do things I later regret), and, more indirectly, Es18 (Always feel great about person I am), Es14 (Feel most alive when giving into urges), and Ex16 (I am always friendly to people) are primary hubs for multiple pathway which indirectly link both item sets. Interestingly, several of these intermediate items share a self-reflective, guilt-laden connection, such that taking time to correctly assess the consequences of one’s decision lessens the likelihood of impulsively engaging in actions which lead to remorse and low self-esteem. It may be possible the links between regulation of emotions and motivation can be explained by a realization hasty actions lead to bad consequences. On a more global level, whereas most of the emotional stability items clustered together to flow into conscientiousness, the more diffuse conscientiousness network flowed down into emotional stability through a few, primarily ideal-point oriented behaviors of Co24 (Pride myself on unwavering ability to act responsibly), Co25 (Although capable of self-motivation, I prefer to have someone else provide direction), Co31 (Do just enough work to get by), and Co11 (I have lied to protect others). In other words, there appear to be many routes for emotional stability change to affect conscientiousness but only a few primary routes (primarily in being responsible or industrious) for conscientiousness to spread into emotional stability. 
 
@@ -230,8 +256,9 @@ Our network illustrates the shortest path between multiple items hence highlight
 pathways(q, from = 28:55,  to = 92:122)
 ```
 
-# **Discussion**
+# Conclusion
 
+Our results suggests that there is promise in exploring the developmental applications of ideal point inventories. Many plausible bridges exist linking developmental trajectories across the personality system. Future research investigating these bridges is needed. Importantly for this symposium, the results indicate personality networks assessed by ideal point inventories are more clearly organized than dominance-based questionnaires (see Constantini et al., 2015), further bolstering the notion ideal point assessments offer a more realistic depiction of personality. Perhaps we will find that ideal point assessments can help practitioners develop ideal employees.
 
 \newpage
 
@@ -239,6 +266,10 @@ pathways(q, from = 28:55,  to = 92:122)
 ```{r create_r-references}
 r_refs(file = "r-references.bib")
 ```
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+<div id = "refs"></div>
 
 ```{r, echo = FALSE,  arning=FALSE, fig.cap = "Big Five Personality Items and Labels"}
 x <- data.frame(Labels = names, Items = itemnames)
@@ -246,5 +277,7 @@ kable(x, booktabs = T, longtable= T) %>%
   kable_styling(latex_options = c("scale_down", "repeat_header", "hold_position"))
 ```
 
-\setlength{\parindent}{-0.5in}
-\setlength{\leftskip}{0.5in}
+
+
+
+\endgroup

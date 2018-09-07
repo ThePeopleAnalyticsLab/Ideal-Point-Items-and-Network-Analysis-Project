@@ -1,9 +1,0 @@
-set title "Category Probability Functions\nItem#: 20, delta= 2.256, alpha= 0.540, tau= 0.000, -4.086, -3.454, -3.216, -1.187,  0.614."
-set xlabel "Theta"
-set ylabel "Prob."
-set xrange [-4:4]
-set yrange [0:1]
-set term postscript
-set output "PLOT220.ps"
-set data style lp
-plot "PLOT220.dat" using 1:2 t "Categories #1" with lines

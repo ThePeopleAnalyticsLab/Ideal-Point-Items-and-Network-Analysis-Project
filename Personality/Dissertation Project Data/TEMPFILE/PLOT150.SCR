@@ -1,9 +1,0 @@
-set title "Mean Expected Value Function and Mean Observed Response\n Item#: 50, delta= 2.658, alpha= 0.734, tau= 0.000, -5.367, -5.337, -5.217, -4.172, -1.168."
-set xlabel "Theta"
-set ylabel "Mean"
-set xrange [-4:4]
-set yrange [0:5]
-set term postscript
-set output "PLOT150.ps"
-set data style lp
-plot "PLOT150.dat" using 4:6 t "Item #50" with lines, "PLOT1 50.dat" using 4:5:9:10 notitle with errorbars lt 1 ps 1

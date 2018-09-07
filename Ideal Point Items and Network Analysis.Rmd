@@ -20,7 +20,7 @@ affiliation:
 author_note: >
   Dan Simonet is an Assistant Professor of Psychology at Montclair State University. Christopher M. Castille is an Assistant Professor of Management and Marketing at Nicholls State University. 
 
-abstract: >
+abstract: |
   Personality researchers have recently taken interest in two methodological innovations network analysis and ideal point item writing strategies. The former suggests that personality is best understood as a system of mutually reinforcing actions while the latter allows more precise measurement of personality components. Here, we explore the value of integrating these two innovations by exploring the network properties of a Big Five inventory constructed with ideal-point items. 
   
 keywords          : "ideal point, personality, network analysis"

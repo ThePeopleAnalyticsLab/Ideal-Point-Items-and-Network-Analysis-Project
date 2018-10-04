@@ -20,7 +20,7 @@ affiliation:
   - id            : "3"
     institution   : "University of Georgia"
 
-author_note: >
+author_note: |
   Dan Simonet is an Assistant Professor of Psychology at Montclair State University. Christopher M. Castille is an Assistant Professor of Management and Marketing at Nicholls State University. Alexandra Harris is a Doctoral Student in I/O Psychology at the University of Georgia. 
   
 abstract: |
@@ -55,14 +55,12 @@ header-includes:
         \par\par
         
         WORD COUNT\newline
-        2588
+        2988
         \clearpage
       }
     }
     \makeatother
   
-bibliography      : ["r-references.bib"]
-
 floatsintext      : no
 figurelist        : no
 tablelist         : no
@@ -70,10 +68,15 @@ footnotelist      : no
 lineno            : no
 mask              : no
 draft             : no
+bibliography      : r-references.bib
+link_citations    : true
+spacing           : "double" 
 
-#documentclass     : "apa6"
+documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_pdf
+output            : 
+  papaja::apa6_pdf:
+    latex_engine    : "xelatex"
 ---
 
 ```{r include = FALSE}
@@ -101,7 +104,7 @@ More importantly, the network perspective can provide a better view of the cogni
 The current study unifies these methodological innovations by applying network analyses to a Big Five instrument developed with ideal-point item writing strategies. We contrast four major network properties with research exploring similar properties of common Big Five inventories [@costantiniFrameworkTestingCausality2018; @costantiniStateARtPersonality2015; @cramerDimensionsNormalPersonality2012]. The first is the topology, or *large-scale structure*, of the Big Five including global node arrangement and degree to which nodes cluster together while distances between any two nodes remain small [*small-worldness*; @costantiniStateARtPersonality2015]. Two, we identify the nature and content of cross-trait item pairings to identify possible *bridging* components explaining observed covariance between trait factors (e.g., why do agreeable people tend to be conscientious). Three, we compare the most “central” and “peripheral” nodes with the nature of the central facets identified in past publications. Nodes which are central play a more prominent role in connecting elements of the personality system and, consequentially, may be idea targets for intervention if desiring to shift one’s personality. Finally, given the general importance of emotional stability and conscientiousness for job performance across occupations, we examine the *shortest* pathways that may explain the route through which changes in emotional stability (conscientiousness) may facilitate changes in conscientiousness (emotional stability). In all cases, we highlight areas where ideal-point items play a role in facilitating information flow in the Big Five network. 
 
 # Methods and Results
-Given space limits yet novelty of network terminology, the methods and results are presented concurrently. The data for this study come from a sample (n = 677) of working employees from Amazon’s Mechanical Turk (MTurk) who completed a suite of ideal point personality assessments capturing the Big Five Aspects [see @castilleBrightDarkVirtues2015; @deyoungCyberneticBigFive2015]. The marginal reliabilities of these assessments were all acceptable (ρ > .82). Psychometric network analyses [@costantiniStateARtPersonality2015] involved casting items as nodes connected by lines, the strength of which corresponds to the strength of the GLASSO regularized partial correlations linking said nodes. The initial network is presented in Figure 1 (item labels provided in Table 1). 
+Given space limits yet novelty of network terminology, the methods and results are presented concurrently. The data for this study come from a sample (n = 677) of working employees from Amazon’s Mechanical Turk (MTurk) who completed a suite of ideal point personality assessments capturing the Big Five Aspects [see @castilleBrightDarkVirtues2015; @deyoungCyberneticBigFive2015]. The marginal reliabilities of these assessments were all acceptable (ρ > .82). Psychometric network analyses [@costantiniStateARtPersonality2015] involved casting items as nodes connected by lines, the strength of which corresponds to the strength of the GLASSO regularized partial correlations linking said nodes. The initial network is presented in Figure 2 (item labels provided in Table 1). 
 
 ```{r, echo = FALSE}
 #data
@@ -133,7 +136,7 @@ Personality networks present items as nodes connected by edges representing stat
 
 The initial network presented in Figure 1 (item labels are provided in Table 1) has 1,339 nonzero edges out of 11,175 possible edges (12%). Several insights can be inferred about the architecture and generating processes of the Big Five. One, similar to [@cramerDimensionsNormalPersonality2012], there is clustering for four of the Big Five with Openness showing less cohesion. Two, it is possible to identify “pockets” of high interactivity (i.e., facets or unique item effects) by highlighting nodes with numerous, densely connected edges as well as their pathways to the larger network. For instance, there is a leadership pocket in the bottom of the extraversion network consisting of items about taking charge (Ex33), following others (Ex31), or enjoyment of project leadership (Ex34). Notice this cluster – while embedded in extraversion – is also distinct because it is only connected to the larger network by a few nodes, such as the belief one is able to persuade (Ex35) and make friends (Ex15) coupled with efforts to engage others (Ex5) and being averse to mediocre work (Co16). Its distinction and peripheral placement may suggest assertive aspects of Extraversion arise from social skills, effort to meet others, and a desire to improve the status quo (i.e., not be mediocre). Three, items along the Big Five borders may illuminate developmental pathways or feedback loops through which change spreads between traits. Take the conscientiousness and openness boundaries. The nodes in the lower left suggest the enjoyment of solving complex problems (O2, O3, O8) is positively linked to a high drive for achievement (Co17, Co18, Co19) whereas nodes in the center left show tolerance for variety (O9, O10, O11) as *negatively* linked to preference for order (Co8, Co7, Co6, Co9). Such countervailing effects suggest reinforcing gains in two Openness components may be associated with diverging effects in a person’s Conscientiousness network (e.g., more industrious but lower order). Interestingly, there are multiple boundary spanning items with ideal-point properties (e.g., O9, Es16, Es27, Ex17, Ex18, Co2, Co8, Co11, Co12, Ag7, Ag14, Ag21) suggesting they help elaborate unique ways trait networks collide. 
 
-```{r, echo=FALSE, warning=FALSE, fig.cap = "Network representation of 168 ideal-point inventory modeled after the NEO-PI facet structure. Each item is represented by a node, and the node number corresponds to the item statements in Table 1. Nodes are connected by green (red) lines if they are positively (negatively) correlated. Line thickness corresponds to correlation strength. The spring-bsaed algorithm (Fruchterman & Reingold, 1991) used to generate the graph places strongly correlated nodes closely together and towards the middle of the graph."}
+```{r, echo=FALSE, warning=FALSE, fig.cap = "Network representation of 168 ideal-point inventory modeled after the NEO-PI facet structure. Each item is represented by a node, and the node number corresponds to the item statements in Table 1. Nodes are connected by green (red) lines if they are positively (negatively) correlated. Line thickness corresponds to correlation strength. The spring-based algorithm (Fruchterman & Reingold, 1991) used to generate the graph places strongly correlated nodes closely together and towards the middle of the graph."}
 
 #### labeling groups in the network ###
 
@@ -156,7 +159,7 @@ q <- qgraph(results$graph, layout = "spring",
        vsize = 3, esize = 6) ### Increase size of nodes; accentuate largest edges
 ```
 
-The *small world* index was 2.35, which is higher than the values of 1.01 reported on the HEXACO facets [@costantiniStateARtPersonality2015] but slightly lower than the 3 threshold recommended for describing a network as a small-world [@wattsCollectiveDynamicsSmallWorld1998]. When a network shows small-worldness, changes in any random part of the network could quickly spread across the whole system by allowing different clusters (e.g., traits) to directly influence one another [@wattsCollectiveDynamicsSmallWorld1998]. Results suggest the current inventory is more clearly organized than dominance-based questionnaires into separate sub-systems (e.g., the Big Five with exception of Openness) which themselves influence one another by means of bridging connections. To illustrate the bridging components linking the Big Five, the initial network was arranged by the Big Five clusters with only partial correlations > .10 displayed (see Figure 2). Eighteen cross-trait item pairings remained (presented in Table 2) which might explain the often-substantial inter-correlations observed between personality factors. Whereas the reason for some linkages is not apparent (Ag23/Co3), others are commonly alluded to in the literature such as the demand for both positive affect and difficult goals in being ambitious and driven at work (e.g., Co15/Ex22). This small-world structure may be masked in personality forms developed to conform to simple structure (Constantini & Perugi, 2016) suggesting an ideal point inventory may offer a more realistic depiction of the personality system.
+The *small world* index was 2.35, which is higher than the values of 1.01 reported on the HEXACO facets [@costantiniStateARtPersonality2015] but slightly lower than the 3 threshold recommended for describing a network as a small-world [@wattsCollectiveDynamicsSmallWorld1998]. When a network shows small-worldness, changes in any random part of the network could quickly spread across the whole system by allowing different clusters (e.g., traits) to directly influence one another [@wattsCollectiveDynamicsSmallWorld1998]. Results suggest the current inventory is more clearly organized than dominance-based questionnaires into separate sub-systems (e.g., the Big Five with exception of Openness) which themselves influence one another by means of bridging connections. To illustrate the bridging components linking the Big Five, the initial network was arranged by the Big Five clusters with only partial correlations > .10 displayed (see Figure 2). Eighteen cross-trait item pairings remained (presented in Table 2) which might explain the often-substantial inter-correlations observed between personality factors. Whereas the reason for some linkages is not apparent (Ag23/Co3), others are commonly alluded to in the literature such as the demand for both positive affect and difficult goals in being ambitious and driven at work (e.g., Co15/Ex22). This small-world structure may be masked in personality forms developed to conform to simple structure [@costantiniFrameworkTestingCausality2018] suggesting an ideal point inventory may offer a more realistic depiction of the personality system.
 
 ```{r, echo = FALSE,  Warning=FALSE, results = 'asis'}
 y <- data.frame(ItemLabels = c('Ag28.O26', 'Ag13.Co5', 'Ag14.Co25',
@@ -270,14 +273,10 @@ r_refs(file = "r-references.bib")
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
 <div id = "refs"></div>
+\endgroup
 
 ```{r, echo = FALSE,  arning=FALSE, fig.cap = "Big Five Personality Items and Labels"}
 x <- data.frame(Labels = names, Items = itemnames)
 kable(x, booktabs = T, longtable= T) %>%
   kable_styling(latex_options = c("scale_down", "repeat_header", "hold_position"))
 ```
-
-
-
-
-\endgroup
